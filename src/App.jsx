@@ -543,13 +543,29 @@ export default function PlagueTrail() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="space-y-2">
                 <Label>Household size (3–8)</Label>
-                <Input
-                  type="number"
-                  min={3}
-                  max={8}
-                  value={familySize}
-                  onChange={(e) => setFamilySize(clamp(parseInt(e.target.value || "5", 10), 3, 8))}
-                />
+                <<div className="flex items-center gap-2">
+  <Button
+    type="button"
+    variant="outline"
+    onClick={() => setFamilySize((n) => clamp(n - 1, 3, 8))}
+  >
+    −
+  </Button>
+
+  <div className="w-14 text-center font-medium">
+    {familySize}
+  </div>
+
+  <Button
+    type="button"
+    variant="outline"
+    onClick={() => setFamilySize((n) => clamp(n + 1, 3, 8))}
+  >
+    +
+  </Button>
+</div>
+<p className="text-xs text-muted-foreground">Household size (3–8)</p>
+                
                 <p className="text-xs text-muted-foreground">More people = more supplies needed each round.</p>
               </div>
               <div className="md:col-span-2 space-y-2">
