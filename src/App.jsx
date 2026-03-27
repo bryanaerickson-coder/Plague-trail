@@ -124,47 +124,80 @@ const STORE_ITEMS = [
 
 const QUIZ_BANK = [
   {
+    id: "ex7-1",
     tag: "Exodus 7",
     q: "What sign happened to the Nile as the first plague?",
     a: "It turned to blood",
     choices: ["It froze", "It turned to blood", "It dried up", "It overflowed"],
   },
   {
+    id: "ex7-2",
     tag: "Exodus 7",
     q: "Who confronted Pharaoh and delivered the Lord’s message?",
     a: "Moses and Aaron",
     choices: ["Joshua and Caleb", "Moses and Aaron", "Elijah and Elisha", "Peter and John"],
   },
   {
+    id: "ex8-1",
     tag: "Exodus 8",
     q: "Which plague involved frogs coming up into houses?",
     a: "The second plague",
     choices: ["The fifth plague", "The second plague", "The ninth plague", "The tenth plague"],
   },
   {
+    id: "ex9-1",
     tag: "Exodus 9",
     q: "What was Pharaoh’s repeated response after some plagues eased?",
     a: "He hardened his heart",
     choices: ["He repented immediately", "He left Egypt", "He hardened his heart", "He asked Israel to stay"],
   },
   {
+    id: "ex10-1",
     tag: "Exodus 10",
     q: "What covered the land during the ninth plague?",
     a: "Darkness",
     choices: ["Snow", "Darkness", "Floodwater", "Fire"],
   },
   {
+    id: "ex12-1",
     tag: "Exodus 12",
     q: "What did Israel mark on their doorposts at Passover?",
     a: "Lamb’s blood",
     choices: ["Oil", "Lamb’s blood", "Water", "Ash"],
   },
   {
+    id: "ex12-2",
     tag: "Exodus 12",
     q: "Passover reminded Israel of what?",
     a: "Deliverance and protection",
     choices: ["A harvest festival", "Deliverance and protection", "A king’s birthday", "Building the tabernacle"],
   },
+  // --- EXTRA QUESTIONS (add these into QUIZ_BANK) ---
+
+// Exodus 7
+{ id: "ex7-3", tag: "Exodus 7", q: "What did Aaron’s staff become when he acted before Pharaoh?", a: "A serpent", choices: ["A serpent", "A bird", "A branch", "A river"] },
+{ id: "ex7-4", tag: "Exodus 7", q: "How long did the water remain affected during the first plague?", a: "Seven days", choices: ["One day", "Three days", "Seven days", "Forty days"] },
+{ id: "ex7-5", tag: "Exodus 7", q: "What was Pharaoh’s attitude after the first signs?", a: "He hardened his heart", choices: ["He immediately obeyed", "He hardened his heart", "He freed Israel", "He moved away"] },
+
+// Exodus 8
+{ id: "ex8-2", tag: "Exodus 8", q: "What did the magicians admit after they failed to copy a plague?", a: "This is the finger of God", choices: ["This is the finger of God", "Moses tricked us", "It was chance", "It was a dream"] },
+{ id: "ex8-3", tag: "Exodus 8", q: "Which group was protected during some plagues, showing a difference in the land?", a: "The Israelites in Goshen", choices: ["The Israelites in Goshen", "The magicians", "Pharaoh’s guards", "No one"] },
+{ id: "ex8-4", tag: "Exodus 8", q: "What was Pharaoh’s common pattern after relief came?", a: "He changed his mind", choices: ["He changed his mind", "He wrote a treaty", "He moved away", "He apologized publicly"] },
+
+// Exodus 9
+{ id: "ex9-2", tag: "Exodus 9", q: "What warning was given before the hail came?", a: "Bring people and animals under shelter", choices: ["Go to the river", "Bring people and animals under shelter", "Hide in caves", "Leave Egypt immediately"] },
+{ id: "ex9-3", tag: "Exodus 9", q: "How did some Egyptians respond to the hail warning?", a: "They took shelter", choices: ["They laughed", "They took shelter", "They attacked Moses", "They moved to Goshen"] },
+{ id: "ex9-4", tag: "Exodus 9", q: "What did Pharaoh say after the hail stopped?", a: "I have sinned", choices: ["I have sinned", "I never doubted", "Moses is lying", "I will leave"] },
+
+// Exodus 10
+{ id: "ex10-2", tag: "Exodus 10", q: "What did the locusts do to the land?", a: "They ate what remained after the hail", choices: ["They built nests", "They ate what remained after the hail", "They turned water to blood", "They caused boils"] },
+{ id: "ex10-3", tag: "Exodus 10", q: "How long did the darkness last?", a: "Three days", choices: ["One day", "Three days", "Seven days", "Ten days"] },
+{ id: "ex10-4", tag: "Exodus 10", q: "What did Pharaoh try to negotiate during the locusts/darkness phase?", a: "Who could go and what could be taken", choices: ["A new capital city", "Who could go and what could be taken", "A new river", "A new king"] },
+
+// Exodus 12
+{ id: "ex12-3", tag: "Exodus 12", q: "What was Israel commanded to do the night of Passover?", a: "Stay inside until morning", choices: ["Go outside and watch", "Stay inside until morning", "Travel immediately", "Meet Pharaoh"] },
+{ id: "ex12-4", tag: "Exodus 12", q: "Why was unleavened bread used?", a: "They had to leave quickly", choices: ["It tasted better", "They had to leave quickly", "It was Pharaoh’s law", "It was cheaper"] },
+{ id: "ex12-5", tag: "Exodus 12", q: "What was Passover meant to help Israel remember?", a: "The Lord’s deliverance", choices: ["A harvest festival", "The Lord’s deliverance", "Building the tabernacle", "Crossing Jordan"] },
 ];
 
 function clamp(n, min, max) {
@@ -258,7 +291,7 @@ export default function PlagueTrail() {
   const [kidFriendly, setKidFriendly] = useState(true);
   const [familySize, setFamilySize] = useState(5);
   const [names, setNames] = useState(["Dad", "Mom", "Firstborn", "Sibling", "Grandparent"]);
-  const [money, setMoney] = useState(45);
+  const [money, setMoney] = useState(60);
   const [inv, setInv] = useState(useInitialInventory());
   const [plagueIndex, setPlagueIndex] = useState(0);
   const [faith, setFaith] = useState(3); // earned by quiz
@@ -288,7 +321,7 @@ export default function PlagueTrail() {
 
   function resetGame() {
     setPhase("setup");
-    setMoney(45);
+    setMoney(60);
     setInv(useInitialInventory());
     setPlagueIndex(0);
     setFaith(3);
