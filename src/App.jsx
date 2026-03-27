@@ -640,7 +640,7 @@ export default function PlagueTrail() {
                       <span>Total</span>
                       <span className={totalCartCost > money ? "text-destructive font-medium" : "font-medium"}>{totalCartCost} coins</span>
                     </div>
-                    <Button className="w-full" onClick={checkout} disabled={totalCartCost === 0 || totalCartCost > money}>
+                    <Button className="w-full" onClick={checkout} disabled={totalCartCost > money}>
                       Buy & Face the Plague
                     </Button>
                     <p className="text-xs text-muted-foreground">Tip: You can also choose to buy nothing—sometimes faith and wisdom carry you.</p>
